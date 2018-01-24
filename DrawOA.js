@@ -31,11 +31,11 @@ function drawTargetingRadius (x,y,targetingRadius,targetingLineWidth,targetingCo
 function drawEnemy (x,y,radius) {
 	colorCircle(x,y,radius,'brown');
 
-	for(var i=0;i<enemyList.length;i++) {
+/*	for(var i=0;i<enemyList.length;i++) {
         var tempEnemy = enemyList[i];
         drawLine(x,y,tempEnemy.x,tempEnemy.y);
     }
-
+*/
 }
 
 

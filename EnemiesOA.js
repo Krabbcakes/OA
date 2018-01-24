@@ -7,7 +7,7 @@ class Enemy {
 		this.y = y;
 		this.vel_x = 0;
 		this.vel_y = 0;
-		this.radius = 7;
+		this.radius = 4;
 	}
 
 	moveEnemy (index) {

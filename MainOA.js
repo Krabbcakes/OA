@@ -12,6 +12,8 @@ window.onload = function() {
 
 	document.addEventListener("keydown", keyPressedQ);
 	document.addEventListener("keydown", keyPressedW);
+	document.addEventListener("keydown", keyPressedT);
+	document.addEventListener("keydown", keyPressedY);
 }
 // poo
 var canvas, canvasContext;
@@ -39,9 +41,21 @@ function keyPressedQ(evt) {
 	toggleEnemySpawner = true;
 	}
 }
+
 function keyPressedW(evt) {
 	if (evt.keyCode == 87) {
 	toggleEnemySpawner = false;
+	}
+
+}
+function keyPressedT(evt) {
+	if (evt.keyCode == 84) {
+	toggleTurret = true;
+	}
+}
+function keyPressedY(evt) {
+	if (evt.keyCode == 89) {
+	toggleTurret = false;
 	}
 }
 
@@ -55,6 +69,10 @@ function mouseClick(evt) {
             addEnemySpawner(evt.clientX,evt.clientY);
             break;   
             } 	
+            if (toggleTurret == true) {
+            addTurret(evt.clientX,evt.clientY);
+            break;  	
+            }
     	}
 	}
 }
