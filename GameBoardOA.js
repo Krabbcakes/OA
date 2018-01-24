@@ -8,9 +8,9 @@ function addEnemy (x,y) {
 	enemyList.push(tempEnemy);
 }
 
-function enemyUpdate () {
+function enemyUpdate (gameRunning) {
 	   for(var i=0;i<enemyList.length;i++) {
-        enemyList[i].update(i);
+        enemyList[i].update(i,gameRunning);
     }
 }
 
@@ -24,9 +24,9 @@ function addEnemySpawner (x,y) {
 	enemySpawnerList.push(tempEnemySpawner);
 }
 
-function enemySpawnerUpdate () {
+function enemySpawnerUpdate (gameRunning) {
 	   for(var i=0;i<enemySpawnerList.length;i++) {
-        enemySpawnerList[i].update();
+        enemySpawnerList[i].update(gameRunning);
     }
 }
 

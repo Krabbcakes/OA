@@ -7,7 +7,7 @@ class Enemy {
 		this.y = y;
 		this.vel_x = 0;
 		this.vel_y = 0;
-		this.radius = 4;
+		this.radius = 7;
 	}
 
 	moveEnemy (index) {
@@ -25,10 +25,12 @@ class Enemy {
 		enemyList.splice(index, 1);
 	}
 
-	update(index) {
-		drawEnemy (this.x,this.y,this.radius);
+	update(index,gameRunning) {
+		if (gameRunning == true) {
 		this.moveEnemy (index);
 		this.checkMyPosition (index);
+		}
+		drawEnemy (this.x,this.y,this.radius);
 	}
 }
 
@@ -51,9 +53,11 @@ class EnemySpawner {
 		this.resourcePool += 1;
 	}
 
-	update() {
+	update(gameRunning) {
 		drawEnemySpawner (this.x,this.y);
+		if (gameRunning == true) {
 		this.spawnEnemy();
 		this.addResources();
+		}
 	}
 }

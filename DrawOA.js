@@ -2,11 +2,11 @@
 
 
 
-function drawAll() {
-colorRect(0,0, canvas.width, canvas.height, 'black');
-colorCircle(400,450,5,'yellow');
+function drawAll(gameRunning) {
+	if (gameRunning) {
+		colorRect(0,0, canvas.width, canvas.height, 'black');
+	}
 }
-
 
 
 

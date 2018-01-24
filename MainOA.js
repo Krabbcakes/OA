@@ -14,18 +14,32 @@ window.onload = function() {
 	document.addEventListener("keydown", keyPressedW);
 	document.addEventListener("keydown", keyPressedT);
 	document.addEventListener("keydown", keyPressedY);
+	document.addEventListener("keydown", keyPressedSpaceBar);
 }
 // poo
 var canvas, canvasContext;
 
+gameRunning = new Boolean (true);
+
+function keyPressedSpaceBar(evt) {
+	if (evt.keyCode == 32) {
+		if (gameRunning == false) {
+			gameRunning = true;
+		}
+		else {
+			gameRunning = false;
+		}
+	}
+}
 //////////////////////////////////  UPDATE  ////////////////////////////////////////////
 
 function updateAll () {
-
-	drawAll ();
-	enemyUpdate ();
-	enemySpawnerUpdate();	
-	turretUpdate();
+	drawAll (gameRunning);	
+	enemyUpdate (gameRunning);
+	enemySpawnerUpdate(gameRunning);	
+	turretUpdate(gameRunning);
+	
+	
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -35,6 +49,7 @@ var enemySpawnerList = [];
 var turretList = [];
 var shotsTurretList = [];
 
+toggleTurret = new Boolean (false);
 toggleEnemySpawner = new Boolean (false);
 function keyPressedQ(evt) {
 	if (evt.keyCode == 81) {
@@ -114,3 +129,5 @@ class Timer{
 
 
 
+////////////////////add
+// gold nodes spawn in middle of map that player has to branch out and fight for

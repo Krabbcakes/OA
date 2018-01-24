@@ -12,7 +12,7 @@ class Turret {
 		this.targetingLineWidth = .5;
 	}
 
-	update () {
+	update (gameRunning) {
 		drawTurret(this.x,this.y,this.radius,this.color);
 		drawTargetingRadius (this.x,this.y,this.targetingRadius,this.targetingLineWidth,this.targetingColor);
 	}
