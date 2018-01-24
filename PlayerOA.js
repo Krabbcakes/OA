@@ -10,31 +10,42 @@ class Turret {
 		this.color = 'bisque';
 		this.targetingColor = 'white';
 		this.targetingLineWidth = 1;
+		this.damage = 20;
+
+		this.currentTargetEnemy = null;
 	}
 
-	checkTargetingRadius (x,y) {
-		for(var i=0;i<enemyList.length;i++) {
-        	var tempEnemy = enemyList[i];
-        	if (Math.sqrt ( ((tempEnemy.x - this.x)*(tempEnemy.x - this.x)) + ((tempEnemy.y - this.y)*(tempEnemy.y - this.y)) ) < this.targetingRadius) {
-        		tempEnemy.insideTurretRadius = true;
-        	}
-        	else {
-        		tempEnemy.insideTurretRadius = false;
-        	}
-//        		drawTargetingLine (this.x,this.y);
-//        		tempEnemy.health -= 10;
-
-        	
-//       	drawLine(x,y,tempEnemy.x,tempEnemy.y);
+	checkTargetingRadius () {
+		if (this.currentTargetEnemy == null) {
+			for(var i=0;i<enemyList.length;i++) {
+        		var tempEnemy = enemyList[i];
+        		if (checkIfWithinRadius (this,tempEnemy,this.targetingRadius) == true) {
+        			this.currentTargetEnemy = tempEnemy;
+        			break;
+        		}
+        	}	
     	}
+		
+		else {
+				this.currentTargetEnemy.insideTurretRadius (this.damage);
+				drawLine(this.x,this.y,this.currentTargetEnemy.x,this.currentTargetEnemy.y);
+
+			if (this.currentTargetEnemy.health <= 0) {
+				this.currentTargetEnemy = null;
+				return;
+			}
+	
+			if (checkIfWithinRadius (this,this.currentTargetEnemy,this.targetingRadius) == false){
+				this.currentTargetEnemy = null;	
+			}
+		}
     }	
 	
 
 	update (gameRunning) {
 		drawTurret(this.x,this.y,this.radius,this.color);
-		drawTargetingRadius (this.x,this.y,this.targetingRadius,this.targetingLineWidth,this.targetingColor);
-		
-		this.checkTargetingRadius (this.x,this.y);
+		drawTargetingRadius (this.x,this.y,this.targetingRadius,this.targetingLineWidth,this.targetingColor);	
+		this.checkTargetingRadius();
 	}
 }
 

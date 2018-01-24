@@ -11,7 +11,7 @@ class Enemy {
 
 		this.health = 100;
 
-		this.insideTurretRadius = new Boolean (false);
+//		this.insideTurretRadius = new Boolean (false);
 	}
 
 	moveEnemy (index) {
@@ -23,17 +23,12 @@ class Enemy {
 		if (this.y > canvas.height || this.x > canvas.width || this.x < 0 || this.y < 0){
 			this.killMe(index);
 		}
-//		if (this.insideTurretRadius == true) {
-//			this.health -= 50;
-		for (var i=0;i<turretList.length;i++) {
-			var tempTurret = turretList[i];
-			if (this.insideTurretRadius == true) {
-			drawLine(this.x,this.y,tempTurret.x,tempTurret.y);
-			this.health -= 50;
-			} 
-		}	
-//	}
+	}	
+
+	insideTurretRadius (damage) {
+		this.health -= damage;
 	}
+	
 	checkHealth (index) {
 		if (this.health <= 0) {
 			this.killMe(index);
