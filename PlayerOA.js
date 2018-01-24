@@ -9,15 +9,22 @@ class Turret {
 		this.targetingRadius = 90;
 		this.color = 'bisque';
 		this.targetingColor = 'white';
-		this.targetingLineWidth = .5;
+		this.targetingLineWidth = 1;
 	}
 
 	checkTargetingRadius (x,y) {
 		for(var i=0;i<enemyList.length;i++) {
         	var tempEnemy = enemyList[i];
-        	if (Math.sqrt ( ((tempEnemy.x - x)*(tempEnemy.x - x)) + ((tempEnemy.y - y)*(tempEnemy.y - y)) ) < targetingRadius) {
-        		console.log (hit);
+        	if (Math.sqrt ( ((tempEnemy.x - this.x)*(tempEnemy.x - this.x)) + ((tempEnemy.y - this.y)*(tempEnemy.y - this.y)) ) < this.targetingRadius) {
+        		tempEnemy.insideTurretRadius = true;
         	}
+        	else {
+        		tempEnemy.insideTurretRadius = false;
+        	}
+//        		drawTargetingLine (this.x,this.y);
+//        		tempEnemy.health -= 10;
+
+        	
 //       	drawLine(x,y,tempEnemy.x,tempEnemy.y);
     	}
     }	
@@ -26,8 +33,8 @@ class Turret {
 	update (gameRunning) {
 		drawTurret(this.x,this.y,this.radius,this.color);
 		drawTargetingRadius (this.x,this.y,this.targetingRadius,this.targetingLineWidth,this.targetingColor);
-		drawTargetingLine (this.x,this.y);		
-		checkTargetingRadius (this.x,this.y);
+		
+		this.checkTargetingRadius (this.x,this.y);
 	}
 }
 

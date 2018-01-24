@@ -30,10 +30,21 @@ function drawTurret (x,y,radius,color) {
 }
 
 function drawTargetingLine (x,y) {
-	for(var i=0;i<enemyList.length;i++) {
+	for (var i=0;i<turretList.length;i++) {
+		var tempTurret = turretList[i];
+		if (insideTurretRadius == true) {
+			drawLine(x,y,tempTurret.x,tempTurret.y);
+		} 
+	}
+
+/*	for(var i=0;i<enemyList.length;i++) {
         var tempEnemy = enemyList[i];
-        drawLine(x,y,tempEnemy.x,tempEnemy.y);
+ //       if (Math.sqrt ( ((tempEnemy.x - x)*(tempEnemy.x - x)) + ((tempEnemy.y - y)*(tempEnemy.y - y)) ) > this.targetingRadius) {
+ //       	drawLine(x,y,tempEnemy.x,tempEnemy.y);
+//        	}
+
     }
+*/    
 }
 
 function drawTargetingRadius (x,y,targetingRadius,targetingLineWidth,targetingColor) {
@@ -84,7 +95,7 @@ function drawLine (x1,y1,x2,y2) {
 	canvasContext.beginPath();
 	canvasContext.moveTo(x1, y1);
 	canvasContext.lineTo(x2, y2);
-	canvasContext.lineWidth = 0.3;
+	canvasContext.lineWidth = 0.5;
 	canvasContext.strokeStyle = '#F0F8FF';
 	canvasContext.stroke();
 }
