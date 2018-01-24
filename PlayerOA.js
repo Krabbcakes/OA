@@ -5,7 +5,7 @@ class Turret {
 		this.x = x;
 		this.y = y;
 		this.ammunition = ammunition;
-		this.radius = 20;
+		this.radius = 12;
 		this.targetingRadius = 75;
 		this.color = 'bisque';
 		this.targetingColor = 'blue';
