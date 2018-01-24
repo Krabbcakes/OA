@@ -13,7 +13,7 @@ window.onload = function() {
 	document.addEventListener("keydown", keyPressedQ);
 	document.addEventListener("keydown", keyPressedW);
 }
-
+// poo
 var canvas, canvasContext;
 
 //////////////////////////////////  UPDATE  ////////////////////////////////////////////
