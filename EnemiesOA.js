@@ -23,15 +23,16 @@ class Enemy {
 		if (this.y > canvas.height || this.x > canvas.width || this.x < 0 || this.y < 0){
 			this.killMe(index);
 		}
-		if (this.insideTurretRadius == true) {
+//		if (this.insideTurretRadius == true) {
+//			this.health -= 50;
+		for (var i=0;i<turretList.length;i++) {
+			var tempTurret = turretList[i];
+			if (this.insideTurretRadius == true) {
+			drawLine(this.x,this.y,tempTurret.x,tempTurret.y);
 			this.health -= 50;
-			for (var i=0;i<turretList.length;i++) {
-				var tempTurret = turretList[i];
-				if (this.insideTurretRadius == true) {
-				drawLine(this.x,this.y,tempTurret.x,tempTurret.y);
-				} 
-			}	
-		}
+			} 
+		}	
+//	}
 	}
 	checkHealth (index) {
 		if (this.health <= 0) {
