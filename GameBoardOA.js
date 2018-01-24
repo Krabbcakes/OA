@@ -37,7 +37,7 @@ function addTurret (x,y) {
 	turretList.push(tempTurret);
 }
 
-function turretUpdate () {
+function turretUpdate (gameRunning) {
 	   for(var i=0;i<turretList.length;i++) {
         turretList[i].update();
     }

@@ -14,7 +14,13 @@ function drawAll(gameRunning) {
 
 
 function drawEnemySpawner (x,y) {
-	colorCircle(x,y,25,'DarkRed');
+	colorCircle(x,y,30,'#660000');
+	colorCircle(x,y,29,'Maroon');
+	colorCircle(x,y,27,'#990000');
+	colorCircle(x,y,24,'#b30000');
+	colorCircle(x,y,23,'#cc0000');
+	colorCircle(x,y,21,'#e60000');
+	colorCircle(x,y,19,'red');
 } 
 
 function drawTurret (x,y,radius,color) {
@@ -23,13 +29,22 @@ function drawTurret (x,y,radius,color) {
 	colorCircle(x,y,radius,color);
 }
 
+function drawTargetingLine (x,y) {
+	for(var i=0;i<enemyList.length;i++) {
+        var tempEnemy = enemyList[i];
+        drawLine(x,y,tempEnemy.x,tempEnemy.y);
+    }
+}
+
 function drawTargetingRadius (x,y,targetingRadius,targetingLineWidth,targetingColor) {
 	colorHollowCircle(x,y,targetingRadius,targetingLineWidth,targetingColor);
 }
 
 
 function drawEnemy (x,y,radius) {
-	colorCircle(x,y,radius,'brown');
+	colorCircle(x,y,radius+.4,'red');
+	colorCircle(x,y,radius,'DarkRed');
+
 
 /*	for(var i=0;i<enemyList.length;i++) {
         var tempEnemy = enemyList[i];

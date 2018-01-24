@@ -13,12 +13,27 @@ window.onload = function() {
 	document.addEventListener("keydown", keyPressedQ);
 	document.addEventListener("keydown", keyPressedW);
 	document.addEventListener("keydown", keyPressedT);
-	document.addEventListener("keydown", keyPressedY);
+	document.addEventListener("keydown" , keyPressedY);
 	document.addEventListener("keydown", keyPressedSpaceBar);
 }
 // poo
 var canvas, canvasContext;
 
+
+
+//////////////////////////////////  UPDATE  ////////////////////////////////////////////
+
+function updateAll () {
+	drawAll (gameRunning);	
+	enemyUpdate (gameRunning);
+	enemySpawnerUpdate(gameRunning);	
+	turretUpdate(gameRunning);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////// 	PAUSE  ///////////////////////////////
 gameRunning = new Boolean (true);
 
 function keyPressedSpaceBar(evt) {
@@ -31,26 +46,20 @@ function keyPressedSpaceBar(evt) {
 		}
 	}
 }
-//////////////////////////////////  UPDATE  ////////////////////////////////////////////
-
-function updateAll () {
-	drawAll (gameRunning);	
-	enemyUpdate (gameRunning);
-	enemySpawnerUpdate(gameRunning);	
-	turretUpdate(gameRunning);
-	
-	
-}
-
-///////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 
 var enemyList = [];
 var enemySpawnerList = [];
 var turretList = [];
 var shotsTurretList = [];
 
+
+
 toggleTurret = new Boolean (false);
 toggleEnemySpawner = new Boolean (false);
+
+
+
 function keyPressedQ(evt) {
 	if (evt.keyCode == 81) {
 	toggleEnemySpawner = true;

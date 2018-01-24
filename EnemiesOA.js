@@ -50,7 +50,7 @@ class EnemySpawner {
 		}
 	}	
 	addResources () {
-		this.resourcePool += 1;
+		this.resourcePool += .5;
 	}
 
 	update(gameRunning) {
