@@ -10,7 +10,7 @@ function addEnemy (x,y) {
 
 function enemyUpdate () {
 	   for(var i=0;i<enemyList.length;i++) {
-        enemyList[i].update();
+        enemyList[i].update(i);
     }
 }
 
@@ -32,10 +32,14 @@ function enemySpawnerUpdate () {
 
 ///////////////////////////////////// PLAYER  //////////////////
 
-function addTurret (x,y) {
+function addTurret (x,y,Hx,Hy,Hradius,Hcolor) {
 	var tempTurret = new Turret (x,y);
 	tempTurret.x = 400;
 	tempTurret.y = 450;
+	tempTurret.Hx = 400;
+	tempTurret.Hy = 450;
+	tempTurret.Hradius = 75;
+	tempTurret.Hcolor = 'white';
 	turretList.push(tempTurret);
 }
 

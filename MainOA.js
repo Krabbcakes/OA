@@ -10,6 +10,8 @@ window.onload = function() {
 	document.addEventListener("keydown", keyPressed1);
 	document.addEventListener("keydown", keyPressed2);
 
+	document.addEventListener("keydown", keyPressedQ);
+	document.addEventListener("keydown", keyPressedW);
 }
 
 var canvas, canvasContext;
@@ -17,9 +19,10 @@ var canvas, canvasContext;
 //////////////////////////////////  UPDATE  ////////////////////////////////////////////
 
 function updateAll () {
+
 	drawAll ();
 	enemyUpdate ();
-	enemySpawnerUpdate();
+	enemySpawnerUpdate();	
 	turretUpdate();
 }
 
@@ -30,12 +33,28 @@ var enemySpawnerList = [];
 var turretList = [];
 var shotsTurretList = [];
 
+toggleEnemySpawner = new Boolean (false);
+function keyPressedQ(evt) {
+	if (evt.keyCode == 81) {
+	toggleEnemySpawner = true;
+	}
+}
+function keyPressedW(evt) {
+	if (evt.keyCode == 87) {
+	toggleEnemySpawner = false;
+	}
+}
+
+
+
 function mouseClick(evt) {
 	switch(evt.which){
         case 1:{
+        	if (toggleEnemySpawner == true) {
             leftClick = true;
             addEnemySpawner(evt.clientX,evt.clientY);
-            break;    	
+            break;   
+            } 	
     	}
 	}
 }
@@ -73,3 +92,7 @@ class Timer{
 }
 
 ///////////////////////////////////////////
+
+
+
+

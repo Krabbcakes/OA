@@ -10,27 +10,30 @@ colorCircle(400,450,5,'yellow');
 
 
 
-function drawEnemy (x,y,radius) {
-	colorCircle(x,y,3,'brown');
-	drawLine(x,y,400,450);
-}
-function drawEnemySpawner (x,y,radius) {
-	colorCircle(x,y,15,'DarkRed');
+
+
+
+function drawEnemySpawner (x,y) {
+	colorCircle(x,y,25,'DarkRed');
 } 
 
-function drawTurret (x,y,radius) {
+function drawTurret (x,y,radius,Hx,Hy,Hradius,Hcolor) {
+//	colorCircle(x,y,71,'white');
+//	colorCircle(x,y,70,'black');
 	colorCircle(x,y,20,'Bisque');
+	colorHollowCircle(Hx,Hy,Hradius,'Hcolor')
 }
 
 
+function drawEnemy (x,y,radius) {
+	colorCircle(x,y,radius,'brown');
 
-
-
-
-
-
-
-
+/*	for(var i=0;i<enemyList.length;i++) {
+        var tempEnemy = enemyList[i];
+        drawLine(x,y,tempEnemy.x,tempEnemy.y);
+    }
+*/
+}
 
 
 
@@ -47,6 +50,13 @@ function colorCircle (centerX, centerY, radius, fillColor) {
 	canvasContext.fill();
 }
 
+function colorHollowCircle (centerHX,centerHY,Hradius,HlineWidth,Hcolor) {
+	canvasContext.beginPath();
+	canvasContext.arc(centerHX,centerHY,Hradius,0,2*Math.PI);
+	canvasContext.lineWidth = HlineWidth;
+	canvasContext.strokeStyle = 'Hcolor'
+	canvasContext.stroke();
+}
 function colorText(showWords, textX, textY, fillColor) {
 	canvasContext.fillStyle = fillColor;
 	canvasContext.fillText(showWords,textX, textY);
