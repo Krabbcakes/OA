@@ -32,14 +32,8 @@ function enemySpawnerUpdate () {
 
 ///////////////////////////////////// PLAYER  //////////////////
 
-function addTurret (x,y,Hx,Hy,Hradius,Hcolor) {
-	var tempTurret = new Turret (x,y);
-	tempTurret.x = 400;
-	tempTurret.y = 450;
-	tempTurret.Hx = 400;
-	tempTurret.Hy = 450;
-	tempTurret.Hradius = 75;
-	tempTurret.Hcolor = 'white';
+function addTurret (x,y) {
+	var tempTurret = new Turret (x,y,20);
 	turretList.push(tempTurret);
 }
 

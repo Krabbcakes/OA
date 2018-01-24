@@ -17,22 +17,25 @@ function drawEnemySpawner (x,y) {
 	colorCircle(x,y,25,'DarkRed');
 } 
 
-function drawTurret (x,y,radius,Hx,Hy,Hradius,Hcolor) {
+function drawTurret (x,y,radius,color) {
 //	colorCircle(x,y,71,'white');
 //	colorCircle(x,y,70,'black');
-	colorCircle(x,y,20,'Bisque');
-	colorHollowCircle(Hx,Hy,Hradius,'Hcolor')
+	colorCircle(x,y,radius,color);
+}
+
+function drawTargetingRadius (x,y,targetingRadius,targetingLineWidth,targetingColor) {
+	colorHollowCircle(x,y,targetingRadius,targetingLineWidth,targetingColor);
 }
 
 
 function drawEnemy (x,y,radius) {
 	colorCircle(x,y,radius,'brown');
 
-/*	for(var i=0;i<enemyList.length;i++) {
+	for(var i=0;i<enemyList.length;i++) {
         var tempEnemy = enemyList[i];
         drawLine(x,y,tempEnemy.x,tempEnemy.y);
     }
-*/
+
 }
 
 
@@ -50,11 +53,11 @@ function colorCircle (centerX, centerY, radius, fillColor) {
 	canvasContext.fill();
 }
 
-function colorHollowCircle (centerHX,centerHY,Hradius,HlineWidth,Hcolor) {
+function colorHollowCircle (centerX,centerY, radius,lineWidth,color) {
 	canvasContext.beginPath();
-	canvasContext.arc(centerHX,centerHY,Hradius,0,2*Math.PI);
-	canvasContext.lineWidth = HlineWidth;
-	canvasContext.strokeStyle = 'Hcolor'
+	canvasContext.arc(centerX,centerY,radius,0,2*Math.PI);
+	canvasContext.lineWidth = lineWidth;
+	canvasContext.strokeStyle = color;
 	canvasContext.stroke();
 }
 function colorText(showWords, textX, textY, fillColor) {
