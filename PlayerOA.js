@@ -44,7 +44,7 @@ class Turret {
 
 	update (gameRunning) {
 		drawTurret(this.x,this.y,this.radius,this.color);
-		drawTargetingRadius (this.x,this.y,this.targetingRadius,this.targetingLineWidth,this.targetingColor);	
+//		drawTargetingRadius (this.x,this.y,this.targetingRadius,this.targetingLineWidth,this.targetingColor);	
 		this.checkTargetingRadius();
 	}
 }

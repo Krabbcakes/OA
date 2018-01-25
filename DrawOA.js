@@ -1,8 +1,12 @@
 
 
 
+function drawAll (gameRunning) {
+	drawBackground (gameRunning);
+}
 
-function drawAll(gameRunning) {
+
+function drawBackground(gameRunning) {
 	if (gameRunning) {
 		colorRect(0,0, canvas.width, canvas.height, 'black');
 	}
