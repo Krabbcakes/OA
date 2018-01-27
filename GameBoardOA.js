@@ -33,7 +33,7 @@ function enemySpawnerUpdate (gameRunning) {
 ///////////////////////////////////// PLAYER  //////////////////
 
 function addTurret (x,y) {
-	var tempTurret = new Turret (x,y,20);
+	var tempTurret = new Turret (x,y);
 	turretList.push(tempTurret);
 }
 
@@ -43,7 +43,28 @@ function turretUpdate (gameRunning) {
     }
 }
 
+function addPowerPlant (x,y) {
+	var tempPowerPlant = new PowerPlant (x,y);
+	powerPlantList.push(tempPowerPlant);
+}
 
+function powerPlantUpdate (gameRunning) {
+	   for(var i=0;i<powerPlantList.length;i++) {
+        powerPlantList[i].update();
+    }
+}
+
+
+function addPowerLines (x,y) {
+	var tempPowerLines = new PowerLines (x1,y1,x2,y2);
+	powerLinesList.push(tempPowerLines);
+}
+
+function powerLinesUpdate (gameRunning) {
+	   for(var i=0;i<powerLinesList.length;i++) {
+        powerLinesList[i].update();
+    }
+}
 
 
 

@@ -11,9 +11,11 @@ window.onload = function() {
 	document.addEventListener("keydown", keyPressed2);
 
 	document.addEventListener("keydown", keyPressedQ);
-	document.addEventListener("keydown", keyPressedW);
+//	document.addEventListener("keydown", keyPressedW);
 	document.addEventListener("keydown", keyPressedT);
-	document.addEventListener("keydown" , keyPressedY);
+//	document.addEventListener("keydown" , keyPressedY);
+	document.addEventListener("keydown", keyPressedL);
+	document.addEventListener("keydown" , keyPressedP);
 	document.addEventListener("keydown", keyPressedSpaceBar);
 }
 // poo
@@ -28,6 +30,8 @@ function updateAll () {
 	enemyUpdate (gameRunning);
 	enemySpawnerUpdate(gameRunning);	
 	turretUpdate(gameRunning);
+	powerPlantUpdate(gameRunning);
+	powerLinesUpdate(gameRunning);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -50,36 +54,58 @@ function keyPressedSpaceBar(evt) {
 
 var enemyList = [];
 var enemySpawnerList = [];
+
 var turretList = [];
 var shotsTurretList = [];
+var powerPlantList = [];
+var powerLinesList = [];
 
 
 
 toggleTurret = new Boolean (false);
 toggleEnemySpawner = new Boolean (false);
-
+togglePowerPlant = new Boolean (false);
+togglePowerLines = new Boolean (false);
 
 
 function keyPressedQ(evt) {
-	if (evt.keyCode == 81) {
+	if (evt.keyCode == 81 && toggleEnemySpawner == false) {
 	toggleEnemySpawner = true;
+	return;
 	}
-}
-
-function keyPressedW(evt) {
-	if (evt.keyCode == 87) {
+	if (evt.keyCode == 81 && toggleEnemySpawner == true) {
 	toggleEnemySpawner = false;
 	}
-
 }
+
+
 function keyPressedT(evt) {
-	if (evt.keyCode == 84) {
+	if (evt.keyCode == 84 && toggleTurret == false) {
 	toggleTurret = true;
+	return;
+	}
+	if (evt.keyCode == 84 && toggleTurret == true) {
+	toggleTurret = false;
 	}
 }
-function keyPressedY(evt) {
-	if (evt.keyCode == 89) {
-	toggleTurret = false;
+
+function keyPressedP(evt) {
+	if (evt.keyCode == 80 && togglePowerPlant == false) {
+	togglePowerPlant = true;
+	return;
+	}
+	if (evt.keyCode == 80 && togglePowerPlant == true) {
+	togglePowerPlant = false;
+	}
+}
+
+function keyPressedL(evt) {
+	if (evt.keyCode == 76 && togglePowerLines == false) {
+	togglePowerLines = true;
+	return;
+	}
+	if (evt.keyCode == 76 && togglePowerLines == true) {
+	togglePowerLines = false;
 	}
 }
 
@@ -95,6 +121,14 @@ function mouseClick(evt) {
             } 	
             if (toggleTurret == true) {
             addTurret(evt.clientX,evt.clientY);
+            break;  	
+            }
+            if (togglePowerPlant == true) {
+            addPowerPlant(evt.clientX,evt.clientY);
+            break;  	
+            }
+            if (togglePowerLines == true) {
+            addPowerLines(evt.clientX,evt.clientY);
             break;  	
             }
     	}

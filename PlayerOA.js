@@ -10,7 +10,7 @@ class Turret {
 		this.color = 'bisque';
 		this.targetingColor = 'white';
 		this.targetingLineWidth = 1;
-		this.damage = 20;
+		this.damage = 100;
 
 		this.currentTargetEnemy = null;
 	}
@@ -56,5 +56,37 @@ class ShotsTurret {
 	constructor (x,y) {
 		this.x = x;
 		this.y = y;
+	}
+}
+
+
+/////////////////////////////// PowerPlant and PowerLines
+
+class PowerPlant {
+	constructor(x,y) {
+		this.x = x;
+		this.y = y;
+		this.radius = 20;
+		this.color = 'green';
+		this.power = 100;
+	}
+	update (gameRunning) {
+		drawPowerPlant (this.x,this.y,this.radius,this.color);
+	}
+}
+
+
+class PowerLines {
+	constructor(x1,y1,x2,y2) {
+		this.x1 = x1;
+		this.x2 = x2;
+		this.y1 = y1;
+		this.y2 = y2;
+//		this.lineWidth = lineWidth;
+		this.color = 'yellow';
+
+	}
+		update (gameRunning) {
+		drawPowerLines (this.x1,this.y1,this.x2,this.y2);
 	}
 }

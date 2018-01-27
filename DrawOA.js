@@ -15,7 +15,7 @@ function drawBackground(gameRunning) {
 
 
 
-
+//////////////////////////////////////////////////ENEMIES
 
 function drawEnemySpawner (x,y) {
 	colorCircle(x,y,30,'#660000');
@@ -27,10 +27,28 @@ function drawEnemySpawner (x,y) {
 	colorCircle(x,y,19,'red');
 } 
 
+
+function drawEnemy (x,y,radius) {
+	colorCircle(x,y,radius+.4,'red');
+	colorCircle(x,y,radius,'DarkRed');
+
+/*	for(var i=0;i<enemyList.length;i++) {
+        var tempEnemy = enemyList[i];
+ //       if (Math.sqrt ( ((tempEnemy.x - x)*(tempEnemy.x - x)) + ((tempEnemy.y - y)*(tempEnemy.y - y)) ) > this.targetingRadius) {
+ //       	drawLine(x,y,tempEnemy.x,tempEnemy.y);
+//        	}
+    }
+*/    
+}
+
+/////////////////////////////////////////////////////PLAYER
+
 function drawTurret (x,y,radius,color) {
 //	colorCircle(x,y,71,'white');
 //	colorCircle(x,y,70,'black');
+	colorCircle(x,y,radius + 3,'grey');
 	colorCircle(x,y,radius,color);
+	colorRect(x-1,y-8,2,15,'black');
 }
 
 function drawTargetingLine (x,y) {
@@ -40,32 +58,18 @@ function drawTargetingLine (x,y) {
 			drawLine(x,y,tempTurret.x,tempTurret.y);
 		} 
 	}
-
-/*	for(var i=0;i<enemyList.length;i++) {
-        var tempEnemy = enemyList[i];
- //       if (Math.sqrt ( ((tempEnemy.x - x)*(tempEnemy.x - x)) + ((tempEnemy.y - y)*(tempEnemy.y - y)) ) > this.targetingRadius) {
- //       	drawLine(x,y,tempEnemy.x,tempEnemy.y);
-//        	}
-
-    }
-*/    
 }
 
 function drawTargetingRadius (x,y,targetingRadius,targetingLineWidth,targetingColor) {
 	colorHollowCircle(x,y,targetingRadius,targetingLineWidth,targetingColor);
 }
 
+function drawPowerPlant (x,y,radius,color) {
+	colorCircle(x,y,radius,color);
+}
 
-function drawEnemy (x,y,radius) {
-	colorCircle(x,y,radius+.4,'red');
-	colorCircle(x,y,radius,'DarkRed');
-
-
-/*	for(var i=0;i<enemyList.length;i++) {
-        var tempEnemy = enemyList[i];
-        drawLine(x,y,tempEnemy.x,tempEnemy.y);
-    }
-*/
+function drawPowerLines (x1,y1,x2,y2) {
+	drawLine (x1,y1,x2,y2);
 }
 
 
